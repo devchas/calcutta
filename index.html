@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html ng-app="calcutta">
+<head>
+	<title>Calcutta</title>
+	<link rel="stylesheet" type="text/css" href="index.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+</head>
+<body>
+	<h1>Calcutta Payout Calculator</h1>
+	<br>
+	<div ng-controller="TeamsController as teamsCtrl">
+		Number of players: <input ng-model="teamsCtrl.players" ng-keyup="teamsCtrl.calcPot()" type="text"></input>
+		Number of teams: <input ng-model="teamsCtrl.numTeams" ng-keyup="teamsCtrl.getTeamList()" type="text"></input>
+		Ante per Player: <input ng-model="teamsCtrl.ante" ng-keyup="teamsCtrl.calcPot()" type="text"></input>
+		<br>
+		<p>Total Pot: ${{teamsCtrl.totalPot}}</p>
+		<table>
+			<thead>
+				<th>Team</th>
+				<th>Junk</th>
+				<th>Front A</th>
+				<th>Front B</th>
+				<th>Back A</th>
+				<th>Back B</th>
+				<th>Total A</th>
+				<th>Total B</th>
+				<th>Payout</th>
+			</thead>
+			<tbody>
+				<tr ng-repeat="team in teamsCtrl.teams">
+					<td>{{$index + 1}}</td>
+					<td><input type="text" ng-model="team.junk" ng-keyup="teamsCtrl.calculate()" class="junk"></input></td>
+					<td><input type="text" ng-model="team.frontA" ng-keyup="teamsCtrl.setTotalA($index); teamsCtrl.calculate()" class="frontA"></input></td>
+					<td><input type="text" ng-model="team.frontB" ng-keyup="teamsCtrl.setTotalB($index); teamsCtrl.calculate()" class="frontB"></input></td>
+					<td><input type="text" ng-model="team.backA" ng-keyup="teamsCtrl.setTotalA($index); teamsCtrl.calculate()" class="backA"></input></td>
+					<td><input type="text" ng-model="team.backB" ng-keyup="teamsCtrl.setTotalB($index); teamsCtrl.calculate()" class="backB"></input></td>
+					<td class="totalA">{{team.totalA}}</td>
+					<td class="totalB">{{team.totalB}}</td>
+					<td class="payout">${{team.payout}}</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<br>
+	<script type="text/javascript" src="app.js"></script>
+</body>
+</html>
