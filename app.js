@@ -40,18 +40,18 @@
 		};
 
 		this.setTotalA = function(index) {
-			this.teams[index].totalA = (parseInt(this.teams[index].frontA || 0) + parseInt(this.teams[index].backA || 0) || "");
+			this.teams[index].totalA = (parseInt(this.teams[index].frontA) || 0) + (parseInt(this.teams[index].backA) || 0);
 		};
 
 		this.setTotalB = function(index) {
-			this.teams[index].totalB = (parseInt(this.teams[index].frontB || 0) + parseInt(this.teams[index].backB || 0) || "");
+			this.teams[index].totalB = (parseInt(this.teams[index].frontB) || 0) + (parseInt(this.teams[index].backB) || 0);
 		};
 
 		this.calculate = function() {
 			// JUNK CALCS
 			var winCount = 0;
-			var winScore = parseInt(this.teams[0].junk) || -100;
-			for (i = 1; i < this.numTeams; i++) {
+			var winScore = -100;
+			for (i = 0; i < this.numTeams; i++) {
 				if (parseInt(this.teams[i].junk) > winScore) {
 					winScore = this.teams[i].junk;
 				}
@@ -72,8 +72,8 @@
 
 			// FRONTA CALCS
 			winCount = 0;
-			winScore = parseInt(this.teams[0].frontA) || 100;
-			for (i = 1; i < this.numTeams; i++) {
+			winScore = 100;
+			for (i = 0; i < this.numTeams; i++) {
 				if (parseInt(this.teams[i].frontA) < winScore) {
 					winScore = this.teams[i].frontA;
 				}
@@ -94,8 +94,8 @@
 
 			// FRONTB CALCS
 			winCount = 0;
-			winScore = parseInt(this.teams[0].frontB) || 100;
-			for (i = 1; i < this.numTeams; i++) {
+			winScore = 100;
+			for (i = 0; i < this.numTeams; i++) {
 				if (parseInt(this.teams[i].frontB) < winScore) {
 					winScore = this.teams[i].frontB;
 				}
@@ -116,8 +116,8 @@
 
 			// BACKA CALCS
 			winCount = 0;
-			winScore = parseInt(this.teams[0].backA) || 100;
-			for (i = 1; i < this.numTeams; i++) {
+			winScore = 100;
+			for (i = 0; i < this.numTeams; i++) {
 				if (parseInt(this.teams[i].backA) < winScore) {
 					winScore = this.teams[i].backA;
 				}
@@ -138,8 +138,8 @@
 
 			// BACKB CALCS
 			winCount = 0;
-			winScore = parseInt(this.teams[0].backB) || 100;
-			for (i = 1; i < this.numTeams; i++) {
+			winScore = 100;
+			for (i = 0; i < this.numTeams; i++) {
 				if (parseInt(this.teams[i].backB) < winScore) {
 					winScore = this.teams[i].backB;
 				}
@@ -160,8 +160,8 @@
 
 			// TOTALA CALCS
 			winCount = 0;
-			winScore = parseInt(this.teams[0].totalA) || 100;
-			for (i = 1; i < this.numTeams; i++) {
+			winScore = 100;
+			for (i = 0; i < this.numTeams; i++) {
 				if (parseInt(this.teams[i].totalA) < winScore) {
 					winScore = this.teams[i].totalA;
 				}
@@ -182,8 +182,8 @@
 
 			// TOTALB CALCS
 			winCount = 0;
-			winScore = parseInt(this.teams[0].totalB) || 100;
-			for (i = 1; i < this.numTeams; i++) {
+			winScore = 100;
+			for (i = 0; i < this.numTeams; i++) {
 				if (parseInt(this.teams[i].totalB) < winScore) {
 					winScore = this.teams[i].totalB;
 				}
