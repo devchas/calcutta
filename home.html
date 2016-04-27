@@ -13,7 +13,7 @@
 		Number of teams: <input ng-model="teamsCtrl.numTeams" ng-keyup="teamsCtrl.getTeamList()" type="text"></input>
 		Ante per Player: <input ng-model="teamsCtrl.ante" ng-keyup="teamsCtrl.calcPot()" type="text"></input>
 		<br>
-		<p>Total Pot: ${{teamsCtrl.totalPot}}</p>
+		<p>Total Pot: {{teamsCtrl.totalPot | currency: "$":0}}</p>
 		<table>
 			<thead>
 				<th>Team</th>
@@ -36,7 +36,7 @@
 					<td><input type="text" ng-model="team.backB" ng-keyup="teamsCtrl.setTotalB($index); teamsCtrl.calculate()" class="backB"></input></td>
 					<td class="totalA">{{team.totalA}}</td>
 					<td class="totalB">{{team.totalB}}</td>
-					<td class="payout">${{team.payout}}</td>
+					<td class="payout">{{team.payout | currency: "$":0}}</td>
 				</tr>
 			</tbody>
 		</table>

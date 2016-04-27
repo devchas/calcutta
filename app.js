@@ -10,7 +10,7 @@
 		this.totalPot = 0;
 
 		this.calcPot = function() {
-			this.totalPot = parseInt(this.players) * parseInt(this.ante);
+			this.totalPot = (parseInt(this.players) * parseInt(this.ante) || 0);
 		};
 
 		this.getTeamList = function() {
