@@ -40,11 +40,11 @@
 		};
 
 		this.setTotalA = function(index) {
-			this.teams[index].totalA = (parseInt(this.teams[index].frontA || 0) + parseInt(this.teams[index].backA || 0) || "");
+			this.teams[index].totalA = (parseInt(this.teams[index].frontA || 0) + parseInt(this.teams[index].backA || 0));
 		};
 
 		this.setTotalB = function(index) {
-			this.teams[index].totalB = (parseInt(this.teams[index].frontB || 0) + parseInt(this.teams[index].backB || 0) || "");
+			this.teams[index].totalB = (parseInt(this.teams[index].frontB || 0) + parseInt(this.teams[index].backB || 0));
 		};
 
 		this.calculate = function() {
